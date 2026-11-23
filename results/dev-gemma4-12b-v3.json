@@ -1,0 +1,5188 @@
+{
+  "name": "dev-gemma4-12b-v3",
+  "model": "gemma4-12b",
+  "prompt": "v3",
+  "runs_per_task": 3,
+  "temperature": 0.6,
+  "wall_seconds": 2566.5,
+  "summary": {
+    "runs": 90,
+    "tasks": 30,
+    "success": 0.989,
+    "urgent_missed": 0.0,
+    "double_booked": 0.0,
+    "collateral": 0.0,
+    "false_success": 0.0,
+    "no_summary": 0.0,
+    "pass_every_run": 0.967,
+    "pass_any_run": 1.0,
+    "mean_tool_calls": 3.98,
+    "tool_error_rate": 0.0,
+    "checked_record": 1.0,
+    "looked_up_guideline": 1.0,
+    "hit_step_limit": 0,
+    "median_seconds": 26.6,
+    "by_category": {
+      "buried_red_flag": "9/9",
+      "downgrade_request": "6/6",
+      "duplicate": "9/9",
+      "escalation": "9/9",
+      "gp_request_conflict": "9/9",
+      "missing_info": "9/9",
+      "out_of_scope": "9/9",
+      "simple": "11/12",
+      "time_critical": "9/9",
+      "two_problems": "9/9"
+    }
+  },
+  "rows": [
+    {
+      "id": "d-001",
+      "run": 0,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 27.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-001"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "atrial fibrillation"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-001",
+            "reason": "Patient has stable rate-controlled AF and requests a specialist opinion on the suitability of rhythm control.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"routine\"}], \"summary\": \"Patient was added to the cardiology waitlist for a routine specialist opinion on rhythm control options for stable atrial fibrillation.\"}"
+    },
+    {
+      "id": "d-001",
+      "run": 1,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-001"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "atrial fibrillation"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-001",
+            "reason": "Patient in stable rate-controlled AF (bisoprolol 2.5mg) and apixaban 5mg bd for 18 months. Requesting specialist opinion on long-term rhythm control vs rate control. No current symptoms of chest pain or breathlessness.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"routine\"}], \"summary\": \"Booked a routine cardiology appointment for the patient to discuss long-term rhythm control options for stable atrial fibrillation.\"}"
+    },
+    {
+      "id": "d-001",
+      "run": 2,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 21.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-001"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "atrial fibrillation rhythm control"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-001",
+            "reason": "Patient with stable rate-controlled AF (on bisoprolol and apixaban) seeking specialist opinion on long-term rhythm control. Normal LV function on echo last year.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"routine\"}], \"summary\": \"Booked a routine cardiology appointment for the patient to seek specialist opinion on rhythm control for stable atrial fibrillation.\"}\n```"
+    },
+    {
+      "id": "d-002",
+      "run": 0,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 27.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-002"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "hip osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-002",
+            "reason": "Right hip osteoarthritis. Constant pain, sleep disturbance, and significantly limited mobility (200m with stick) despite 12 months of physiotherapy and analgesia. Seeking hip replacement discussion.",
+            "urgency": "semi-urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"semi-urgent\"}], \"summary\": \"Booked for orthopaedics at semi-urgent priority due to significant pain, sleep disturbance, and mobility issues despite conservative management.\"}\n```"
+    },
+    {
+      "id": "d-002",
+      "run": 1,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 25.4
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-002"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "hip osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-002",
+            "reason": "Right hip osteoarthritis with marked joint space loss. Constant pain causing sleep disturbance and significant mobility restriction (only 200m with a stick) despite conservative management (physiotherapy, weight loss, analgesia). Patient keen for hip replacement discussion.",
+            "urgency": "semi-urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"semi-urgent\"}], \"summary\": \"Booked the patient for orthopaedics at a semi-urgent level due to chronic hip osteoarthritis causing significant pain and mobility restriction despite conservative management.\"}\n```"
+    },
+    {
+      "id": "d-002",
+      "run": 2,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 22.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-002"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "hip osteoarthritis replacement"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-002",
+            "reason": "Right hip osteoarthritis with constant pain, sleep disturbance, and significant mobility limitation (walking 200m with stick) despite conservative management. Seeking hip replacement discussion.",
+            "urgency": "semi-urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"semi-urgent\"}], \"summary\": \"Booked for orthopaedics at semi-urgent level due to significant pain and mobility limitation from hip osteoarthritis despite conservative management.\"}\n```"
+    },
+    {
+      "id": "d-003",
+      "run": 0,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 35.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-003"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine neurology triage"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine clinic triage"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "neurology",
+            "patient_id": "P-003",
+            "reason": "Episodic migraine without aura; seeking advice on safe preventer options during pregnancy planning and newer treatments.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"neurology\", \"urgency\": \"routine\"}], \"summary\": \"Booked the patient for a routine neurology appointment to discuss migraine management and safe options while planning for pregnancy.\"}\n```"
+    },
+    {
+      "id": "d-003",
+      "run": 1,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 36.9
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-003"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine neurology triage"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "routine neurology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "neurology",
+            "patient_id": "P-003",
+            "reason": "Episodic migraine without aura; seeking advice on safe preventer options and newer treatments during pregnancy planning. Stable symptoms.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"neurology\", \"urgency\": \"routine\"}], \"summary\": \"Booked a routine neurology appointment for episodic migraines and advice on pregnancy-safe treatments.\"}\n```"
+    },
+    {
+      "id": "d-003",
+      "run": 2,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 7,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 8,
+        "stopped": "done",
+        "seconds": 44.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-003"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine neurology clinic urgency"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "migraine routine semi-urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology migraine category"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "neurology",
+            "patient_id": "P-003",
+            "reason": "Episodic migraine without aura; seeking advice on safe pregnancy options and newer treatments.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"neurology\", \"urgency\": \"routine\"}], \"summary\": \"Booked the patient for a neurology clinic appointment at routine urgency to discuss migraine management options while trying to conceive.\"}\n```"
+    },
+    {
+      "id": "d-004",
+      "run": 0,
+      "category": "simple",
+      "grade": {
+        "success": false,
+        "waitlist_ok": false,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 6,
+        "stopped": "done",
+        "seconds": 37.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-004"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "pulmonary sarcoidosis follow up"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "respiratory"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "sarcoidosis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-004",
+            "reason": "Patient is stable with no symptoms and normal tests; guideline does not specify urgency for routine follow-up of sarcoidosis. Flagging for clinician review on how to proceed with a stable patient seeking ongoing specialist follow-up."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Patient is stable with no symptoms and normal tests; guideline does not specify urgency for routine follow-up of sarcoidosis. Flagging for clinician review on how to proceed with a stable patient seeking ongoing specialist follow-up.\"}], \"summary\": \"The referral for pulmonary sarcoidosis follow-up was flagged for clinician review as the patient is currently asymptomatic and stable, and no specific triage criteria were provided for this scenario.\"}"
+    },
+    {
+      "id": "d-004",
+      "run": 1,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 37.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-004"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "pulmonary sarcoidosis"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "respiratory"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "sarcoidosis follow up"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-004",
+            "reason": "Patient requires ongoing follow-up for pulmonary sarcoidosis with no current symptoms and normal tests; guideline does not specify urgency for stable follow-up."
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "respiratory",
+            "patient_id": "P-004",
+            "reason": "Ongoing specialist follow-up for pulmonary sarcoidosis. Patient is currently asymptomatic with normal spirometry and stable X-ray.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"respiratory\", \"urgency\": \"routine\"}], \"summary\": \"Booked the patient for routine respiratory follow-up for pulmonary sarcoidosis and flagged for review due to lack of specific urgency guidelines for stable cases.\"}"
+    },
+    {
+      "id": "d-004",
+      "run": 2,
+      "category": "simple",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 43.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-004"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "pulmonary sarcoidosis follow-up"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "respiratory"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "sarcoidosis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-004",
+            "reason": "Patient requires ongoing specialist follow-up for stable pulmonary sarcoidosis with normal spirometry and unchanged X-ray. No specific urgency criteria met in guidelines."
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "respiratory",
+            "patient_id": "P-004",
+            "reason": "Ongoing specialist follow-up for pulmonary sarcoidosis. Symptoms stable, spirometry and gas transfer normal, X-ray unchanged since 2023.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"respiratory\", \"urgency\": \"routine\"}, {\"type\": \"flagged\", \"reason\": \"Patient requires ongoing specialist follow-up for stable pulmonary sarcoidosis with normal spirometry and unchanged X-ray. No specific urgency criteria met in guidelines.\"}], \"summary\": \"Booked the patient into a routine respiratory clinic for ongoing sarcoidosis follow-up and flagged for review due to lack of urgent clinical indicators.\"}\n```"
+    },
+    {
+      "id": "d-005",
+      "run": 0,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 27.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-005"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "heartburn and dysphagia"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "gastroenterology",
+            "patient_id": "P-005",
+            "reason": "Heartburn no longer controlled on 40mg pantoprazole and progressive dysphagia (food sticking behind breastbone) over last two months.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"gastroenterology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient into the gastroenterology clinic at an urgent priority due to progressive dysphagia.\"}\n```"
+    },
+    {
+      "id": "d-005",
+      "run": 1,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-005"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology dysphagia heartburn"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "gastroenterology",
+            "patient_id": "P-005",
+            "reason": "Heartburn no longer controlled on 40mg pantoprazole. Progressive dysphagia (food sticking behind breastbone) over the last two months with steak and bread. Ex-smoker, drinks 20 units/week. Weight stable.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"gastroenterology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked patient for gastroenterology as urgent due to progressive dysphagia (food sticking) over two months.\"}\n```"
+    },
+    {
+      "id": "d-005",
+      "run": 2,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-005"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology heartburn dysphagia"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "gastroenterology",
+            "patient_id": "P-005",
+            "reason": "Heartburn no longer controlled with pantoprazole. New symptoms of progressive dysphagia (food sticking behind breastbone) over the last two months. Ex-smoker, drinks 20 units/week.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"gastroenterology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient for a gastroenterology clinic with urgent priority due to progressive dysphagia (food sticking) in an older patient.\"}\n```"
+    },
+    {
+      "id": "d-006",
+      "run": 0,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 31.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-006"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "rosacea"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "mole"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "skin cancer"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-006",
+            "reason": "Rosacea relapse and suspected melanoma (9mm, asymmetric, irregular border, darkening/spreading).",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient for an urgent dermatology appointment due to a suspected melanoma and rosacea relapse.\"}\n```"
+    },
+    {
+      "id": "d-006",
+      "run": 1,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 32.9
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-006"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "rosacea"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "mole"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "skin cancer"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-006",
+            "reason": "Facial rosacea and a 9mm asymmetric mole with irregular borders and multiple colors (suspected melanoma).",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked for dermatology as urgent due to a 9mm asymmetric mole with irregular borders and multiple colors, which meets the criteria for suspected melanoma.\"}"
+    },
+    {
+      "id": "d-006",
+      "run": 2,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 32.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-006"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "rosacea"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "mole"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "skin cancer"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-006",
+            "reason": "Rosacea and suspected melanoma (9mm asymmetric mole with irregular border).",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient for dermatology with an urgent priority due to a suspected melanoma (9mm asymmetric mole) and recurring rosacea.\"}\n```"
+    },
+    {
+      "id": "d-007",
+      "run": 0,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 26.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-007"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations and syncope"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-007",
+            "reason": "Occasional skipped beats and frequent ventricular ectopics on Holter. Experienced a blackout (syncope) while carrying shopping up stairs last week. ECG shows sinus rhythm and LVH.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient for an urgent cardiology appointment due to a recent episode of syncope on exertion.\"}"
+    },
+    {
+      "id": "d-007",
+      "run": 1,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 21.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-007"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations ventricular ectopics syncope"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-007",
+            "reason": "Occasional skipped beats and frequent ventricular ectopics (Holter 2024). Experienced a syncopal episode while carrying shopping up stairs (syncope on exertion). ECG showed LVH.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"urgent\"}], \"summary\": \"Patient booked for cardiology at urgent priority due to a syncopal episode on exertion and frequent ventricular ectopics.\"}"
+    },
+    {
+      "id": "d-007",
+      "run": 2,
+      "category": "buried_red_flag",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 19.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-007"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations and syncope"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-007",
+            "reason": "Occasional skipped beats and frequent ventricular ectopics on Holter. Recent syncope on exertion (carrying shopping up stairs). ECG shows LVH.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked for cardiology at urgent priority due to recent syncope on exertion and ventricular ectopics.\"}\n```"
+    },
+    {
+      "id": "d-008",
+      "run": 0,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.4
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-008"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "Achilles tendon rupture"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-008",
+            "reason": "Complete Achilles tendon rupture (confirmed by ultrasound) with a 12 mm gap and positive Thompson's test.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"urgent\"}], \"summary\": \"Patient booked for urgent orthopaedic review following a confirmed complete Achilles tendon rupture.\"}"
+    },
+    {
+      "id": "d-008",
+      "run": 1,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 19.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-008"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "Achilles tendon rupture"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-008",
+            "reason": "Complete Achilles tendon rupture (confirmed by ultrasound) with a 12mm gap and positive Thompson's test.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"urgent\"}], \"summary\": \"Booked for orthopaedics as an urgent case due to a confirmed complete Achilles tendon rupture.\"}\n```"
+    },
+    {
+      "id": "d-008",
+      "run": 2,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 20.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-008"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "Achilles tendon rupture"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-008",
+            "reason": "Complete Achilles tendon rupture (confirmed by ultrasound) following sudden snap; palpable gap and positive Thompson's test.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"urgent\"}], \"summary\": \"Booked a new urgent orthopaedics entry for a complete Achilles tendon rupture confirmed by ultrasound and clinical tests.\"}\n```"
+    },
+    {
+      "id": "d-009",
+      "run": 0,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 24.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-009"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "meniscus tear"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-009",
+            "reason": "Displaced bucket-handle tear of the medial meniscus causing a locked knee (cannot fully straighten) following an acute injury. MRI confirmed.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"urgent\"}], \"summary\": \"Booked for orthopaedics as an urgent case due to a locked knee and bucket-handle meniscus tear.\"}"
+    },
+    {
+      "id": "d-009",
+      "run": 1,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 21.9
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-009"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "meniscus tear"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-009",
+            "reason": "Twisted right knee 8 days ago, stuck at ~20 degrees short of full extension (locked knee), MRI shows displaced bucket-handle tear.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"urgent\"}], \"summary\": \"Patient booked for urgent orthopaedic review due to a locked knee and MRI-confirmed bucket-handle meniscus tear.\"}\n```"
+    },
+    {
+      "id": "d-009",
+      "run": 2,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 20.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-009"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "meniscus tear"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-009",
+            "reason": "Displaced bucket-handle tear of the medial meniscus causing a locked knee (cannot fully straighten).",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient into orthopaedics as urgent due to a recent injury resulting in a locked knee with a displaced bucket-handle meniscus tear.\"}\n```"
+    },
+    {
+      "id": "d-010",
+      "run": 0,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 26.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-010"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "Achilles tendon repair"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-010",
+            "reason": "Old Achilles rupture (3 years ago) with minor weakness and inability to do full single-leg heel raise. Patient seeking advice on elective surgery.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"routine\"}], \"summary\": \"Booked the patient for a routine orthopaedic consultation regarding an old Achilles rupture with stable symptoms.\"}\n```"
+    },
+    {
+      "id": "d-010",
+      "run": 1,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 20.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-010"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "Achilles tendon surgery"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-010",
+            "reason": "Old Achilles rupture (3 years ago) with some weakness and inability to do full single-leg heel raise; patient requesting surgical consultation.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"routine\"}], \"summary\": \"Patient booked for a routine orthopaedic consultation regarding an old Achilles rupture with mild functional limitations.\"}"
+    },
+    {
+      "id": "d-010",
+      "run": 2,
+      "category": "time_critical",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 22.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-010"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "orthopaedics Achilles tendon"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-010",
+            "reason": "Old healed Achilles rupture (3 years ago) with some weakness and inability to do a full single-leg heel raise. Patient seeking advice on surgery.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"routine\"}], \"summary\": \"Booked for a routine orthopaedic review regarding an old Achilles rupture with mild functional limitations.\"}\n```"
+    },
+    {
+      "id": "d-011",
+      "run": 0,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 25.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-011"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-011",
+            "reason": "Patient is requesting an update/appointment for a stable condition (left knee osteoarthritis) that has not changed since the initial referral. No new clinical information provided to increase urgency."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient's condition remains stable with no change in symptoms or severity since the initial referral, so no changes were made to the existing routine orthopaedics entry.\"}"
+    },
+    {
+      "id": "d-011",
+      "run": 1,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 22.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-011"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-011",
+            "reason": "The patient is requesting an appointment update for a routine osteoarthritis referral where symptoms remain unchanged and are well-managed. No new clinical information provided to change urgency."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient's symptoms remain unchanged and are well-managed, so no changes were made to the existing routine orthopaedics entry. The referral was flagged for review as requested by the GP.\"}"
+    },
+    {
+      "id": "d-011",
+      "run": 2,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 21.9
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-011"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-011",
+            "reason": "The patient is requesting a follow-up for an existing referral to discuss options, but her condition remains unchanged as described in the original referral."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient's symptoms remain unchanged and she is already on the waitlist for orthopaedics, so no new booking or update was made, but it has been flagged for review due to her request for a follow-up.\"}"
+    },
+    {
+      "id": "d-012",
+      "run": 0,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 43.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-012"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ulcerative colitis maintenance"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology ulcerative colitis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-012",
+            "reason": "The letter describes stable ulcerative colitis and the patient wants to discuss maintenance options. The current waitlist entry is already for 'ulcerative colitis with recurrent mild flares' at a semi-urgent level. Since there are no new clinical details indicating increased urgency or a change in management that warrants an update to his existing semi-urgent status, and he is not meeting the criteria for 'Urgent', I am flagging this as it is a request for maintenance discussion rather than a new acute issue."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"The patient has an existing semi-urgent entry for ulcerative colitis with recurrent mild flares. The current referral is for maintenance options and does not meet the criteria for a change in urgency or a new booking.\"}], \"summary\": \"Flagged for review as the request is for maintenance discussion on a pre-existing condition that already has a semi-urgent waitlist entry.\"}"
+    },
+    {
+      "id": "d-012",
+      "run": 1,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 28.9
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-012"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ulcerative colitis maintenance"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology ulcerative colitis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-012",
+            "reason": "Patient is already listed for gastroenterology (ulcerative colitis with recurrent mild flares). The new referral is to discuss maintenance options rather than an acute flare or escalation. No change in urgency required."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient already has a semi-urgent entry for ulcerative colitis; since the new referral is for maintenance rather than an acute flare, no changes were made to the waitlist.\"}"
+    },
+    {
+      "id": "d-012",
+      "run": 2,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 33.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-012"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ulcerative colitis maintenance"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology ulcerative colitis"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-012",
+            "reason": "The patient is already listed for gastroenterology (ulcerative colitis with recurrent mild flares). The new referral is to discuss maintenance options rather than a worsening of symptoms. Per rules, if things have improved or the status has not changed significantly, leave as is and flag for review."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient already has a semi-urgent entry for ulcerative colitis; as the new referral is for maintenance discussion and not an escalation of urgency, no changes were made to the waitlist.\"}\n```"
+    },
+    {
+      "id": "d-013",
+      "run": 0,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 29.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-013"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "melanoma dermoscopy"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-013",
+            "reason": "The GP provided dermoscopy findings (8mm, asymmetry, atypical pigment network) confirming suspicion of melanoma. The entry is already listed as 'urgent' and the clinical status remains unchanged since the first referral. No change to urgency required but flagging for clinician review due to new diagnostic data."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient is already on the dermatology waitlist as 'urgent' for a suspected melanoma, and since clinical details remain unchanged, no action was taken other than flagging for review.\"}"
+    },
+    {
+      "id": "d-013",
+      "run": 1,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 20.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-013"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "melanoma"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-013",
+            "reason": "The GP sent follow-up dermoscopy findings (8mm, asymmetry, atypical pigment network) for an existing urgent melanoma referral. The clinical status is unchanged since the first letter."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient already has an urgent dermatology entry for the calf lesion, and as the clinical status is unchanged, no new booking or update was required.\"}"
+    },
+    {
+      "id": "d-013",
+      "run": 2,
+      "category": "duplicate",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-013"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "melanoma"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-013",
+            "reason": "GP reported the lesion is clinically unchanged since the first referral; however, dermoscopy findings (8mm, asymmetry, atypical pigment network) support an urgent triage for suspected melanoma. No changes to urgency are required as it remains 'urgent'."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient already has an urgent dermatology entry for suspected melanoma, and since the GP confirmed it is clinically unchanged but still suspicious on dermoscopy, no changes to the waitlist were made.\"}"
+    },
+    {
+      "id": "d-014",
+      "run": 0,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 27.4
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-014"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology weight loss dark stools anemia"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient now presents with significant weight loss (7kg in 3 months), anemia (Hb 121), and dark stools. Guideline states unexplained weight loss with bowel change/iron deficiency anaemia is urgent.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"updated\", \"clinic\": \"gastroenterology\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing gastroenterology entry from routine to urgent due to new symptoms of significant weight loss, anemia, and dark stools.\"}"
+    },
+    {
+      "id": "d-014",
+      "run": 1,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-014"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology weight loss dark stools"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient now presenting with significant unintentional weight loss (7kg in 3 months), iron deficiency anaemia (Hb 121, ferritin 14), and dark stools. These meet the criteria for urgent triage.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"updated\", \"clinic\": \"gastroenterology\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing gastroenterology entry to urgent due to new symptoms of significant weight loss, iron deficiency anaemia, and dark stools.\"}"
+    },
+    {
+      "id": "d-014",
+      "run": 2,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-014"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology weight loss stools"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient now presents with significant unintentional weight loss (7kg in 3 months), iron deficiency anaemia (Hb 121, Ferritin 14), and dark stools. This meets the 'Urgent' criteria for gastroenterology.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"updated\", \"clinic\": \"gastroenterology\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing gastroenterology entry to urgent due to new symptoms of significant weight loss, iron deficiency anaemia, and dark stools.\"}\n```"
+    },
+    {
+      "id": "d-015",
+      "run": 0,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-015"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology muscle wasting fasciculations"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Progressive muscle wasting and fasciculations with brisk reflexes.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"updated\", \"clinic\": \"neurology\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing neurology entry to urgent due to new clinical signs of progressive muscle wasting and fasciculations.\"}\n```"
+    },
+    {
+      "id": "d-015",
+      "run": 1,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-015"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology wasting fasciculations brisk reflexes"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient now presents with muscle wasting (first dorsal interosseous), fasciculations in forearms and calf, and brisk reflexes, suggesting progressive weakness/potential MND.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"updated\", \"clinic\": \"neurology\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing neurology entry to urgent due to new clinical findings of muscle wasting, fasciculations, and brisk reflexes.\"}\n```"
+    },
+    {
+      "id": "d-015",
+      "run": 2,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 20.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-015"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology weakness fasciculations"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient now presents with muscle wasting and fasciculations, indicating a more severe neurological deficit.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"updated\", \"clinic\": \"neurology\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing neurology entry from routine to urgent due to new clinical findings of muscle wasting and fasciculations.\"}\n```"
+    },
+    {
+      "id": "d-016",
+      "run": 0,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 26.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-016"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "respiratory cough blood opacity"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient is a chronic smoker with new hemoptysis and a 3cm opacity on chest X-ray. Guideline classifies suspected lung cancer as urgent.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"updated\", \"clinic\": \"respiratory\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing respiratory entry to urgent due to new hemoptysis and a 3cm opacity in a smoker.\"}"
+    },
+    {
+      "id": "d-016",
+      "run": 1,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-016"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "respiratory lung opacity blood in sputum smoking history"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient presents with haemoptysis and a new 3 cm opacity in the right upper lobe. This meets the criteria for urgent triage due to suspected lung cancer.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"updated\", \"clinic\": \"respiratory\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the existing respiratory entry to urgent due to new symptoms of haemoptysis and a 3cm lung opacity in a smoker.\"}\n```"
+    },
+    {
+      "id": "d-016",
+      "run": 2,
+      "category": "escalation",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-016"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "respiratory opacity hemoptysis smoker"
+          },
+          "error": null
+        },
+        {
+          "tool": "update_waitlist_entry",
+          "args": {
+            "entry_id": "W-001",
+            "reason": "Patient is a smoker presenting with hemoptysis and a new 3cm opacity on CXR. Guideline states suspected lung cancer (hemoptysis in a smoker) should be urgent.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"updated\", \"clinic\": \"respiratory\", \"urgency\": \"urgent\"}], \"summary\": \"Updated the patient's existing respiratory entry to urgent due to new symptoms of hemoptysis and a 3cm opacity in a smoker.\"}\n```"
+    },
+    {
+      "id": "d-017",
+      "run": 0,
+      "category": "downgrade_request",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 32.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-017"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology chest pain urgency"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-017",
+            "reason": "The GP requested to downgrade the cardiology appointment from 'urgent' to 'routine' because the patient feels better. Per guidelines, urgency cannot be lowered based on a letter alone; therefore, I have flagged this for clinician review while keeping the existing urgent entry."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"The GP requested to downgrade the cardiology appointment from 'urgent' to 'routine' because the patient feels better. Per guidelines, urgency cannot be lowered based on a letter alone; therefore, I have flagged this for clinician review while keeping the existing urgent entry.\"}], \"summary\": \"Flagged the referral as the GP requested an urgency downgrade which is prohibited by guidelines.\"}\n```"
+    },
+    {
+      "id": "d-017",
+      "run": 1,
+      "category": "downgrade_request",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 28.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-017"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology chest pain urgency"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-017",
+            "reason": "GP requested to lower urgency of cardiology entry for chest pain due to patient feeling better; guidelines state never lower an existing entry's urgency."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"GP requested to lower urgency of cardiology entry for chest pain due to patient feeling better; guidelines state never lower an existing entry's urgency.\"}], \"summary\": \"The GP requested a reduction in urgency for the cardiology appointment, but per guidelines, existing entries cannot be downgraded, so it was flagged for review.\"}"
+    },
+    {
+      "id": "d-017",
+      "run": 2,
+      "category": "downgrade_request",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-017"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology chest tightness"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-017",
+            "reason": "GP requested to lower urgency from urgent to routine due to improvement; however, guidelines state that existing entries should not be lowered in urgency if they have improved."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"no_change\"}], \"summary\": \"The patient's cardiology entry remains at urgent as guidelines prohibit lowering the urgency of an existing entry even if symptoms have improved.\"}"
+    },
+    {
+      "id": "d-018",
+      "run": 0,
+      "category": "downgrade_request",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 31.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-018"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology colonoscopy urgency"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-018",
+            "reason": "GP requested downgrading urgency from urgent to routine due to negative faecal occult blood test. Rule states never lower an existing entry's urgency based on a new letter alone."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"GP requested downgrading urgency from urgent to routine due to negative faecal occult blood test. Rule states never lower an existing entry's urgency based on a new letter alone.\"}], \"summary\": \"The patient has an active urgent gastroenterology entry for a positive bowel screening; per guidelines, the GP's request to downgrade this to routine is flagged for review rather than updated.\"}\n```"
+    },
+    {
+      "id": "d-018",
+      "run": 1,
+      "category": "downgrade_request",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 27.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-018"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology bowel screening"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-018",
+            "reason": "GP requested to downgrade urgency from urgent to routine due to negative faecal occult blood kit; however, rule states never lower an existing entry's urgency if things have improved."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"GP requested to downgrade urgency from urgent to routine due to negative faecal occult blood kit; however, rule states never lower an existing entry's urgency if things have improved.\"}], \"summary\": \"Flagged for review because the GP requested a downgrade in urgency which is against the rule of never lowering an existing entry's urgency.\"}"
+    },
+    {
+      "id": "d-018",
+      "run": 2,
+      "category": "downgrade_request",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 21.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-018"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "bowel screening"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-018",
+            "reason": "GP requested to downgrade urgency from urgent to routine due to negative faecal occult blood test; however, guidelines state a positive bowel screening test remains an urgent triage category."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"GP requested to downgrade urgency from urgent to routine due to negative faecal occult blood test; however, guidelines state a positive bowel screening test remains an urgent triage category.\"}], \"summary\": \"Flagged for review because the GP requested a downgrade in urgency that contradicts the clinical guideline for a positive bowel screening test.\"}"
+    },
+    {
+      "id": "d-019",
+      "run": 0,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 21.4
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-019"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-019",
+            "question": "Please provide the results of the echocardiogram and exercise stress test mentioned in your letter."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-019\", \"question\": \"Please provide the results of the echocardiogram and exercise stress test mentioned in your letter.\"}], \"summary\": \"Requested missing diagnostic results before booking a cardiology appointment.\"}"
+    },
+    {
+      "id": "d-019",
+      "run": 1,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-019"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-019",
+            "question": "Please provide the results of the echocardiogram and exercise stress test mentioned in your letter. Additionally, please specify any symptoms (e.g., chest pain, shortness of breath) that prompted this referral to help determine the urgency category."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-019\", \"question\": \"Please provide the results of the echocardiogram and exercise stress test mentioned in your letter. Additionally, please specify any symptoms (e.g., chest pain, shortness of breath) that prompted this referral to help determine the urgency category.\"}], \"summary\": \"Requested missing test results and clinical symptoms to determine the appropriate cardiology urgency category.\"}"
+    },
+    {
+      "id": "d-019",
+      "run": 2,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 18.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-019"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-019",
+            "question": "Please provide the results of the echocardiogram and exercise stress test mentioned in the referral letter."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"question\": \"Please provide the results of the echocardiogram and exercise stress test mentioned in the referral letter.\"}], \"summary\": \"The referral mentions an echocardiogram and stress test but these results were not included; requesting them from the GP before booking.\"}"
+    },
+    {
+      "id": "d-020",
+      "run": 0,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 26.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-020"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology skin spot"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-020",
+            "question": "Please provide more details regarding the 'spot' (e.g., size, location, duration, and any changes to its appearance) to determine the appropriate urgency for a dermatology referral."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-020\", \"question\": \"Please provide more details regarding the 'spot' (e.g., size, location, duration, and any changes to its appearance) to determine the appropriate urgency for a dermatology referral.\"}], \"summary\": \"Requested more clinical information about the skin spot as the current description is insufficient to determine an urgency category.\"}"
+    },
+    {
+      "id": "d-020",
+      "run": 1,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 22.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-020"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology skin spot"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-020",
+            "question": "Please provide more details regarding the skin spot (e.g., size, location, appearance, and any changes over time) to determine the appropriate urgency for a dermatology referral."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-020\", \"question\": \"Please provide more details regarding the skin spot (e.g., size, location, appearance, and any changes over time) to determine the appropriate urgency for a dermatology referral.\"}], \"summary\": \"Requested more clinical details about the skin spot as the current description is insufficient to assign an urgency category.\"}"
+    },
+    {
+      "id": "d-020",
+      "run": 2,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 23.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-020"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology skin spot"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-020",
+            "question": "Please provide more details regarding the 'spot' (e.g., size, site, color, and any changes over time) to help determine the urgency of the dermatology referral."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-020\", \"question\": \"Please provide more details regarding the 'spot' (e.g., size, site, color, and any changes over time) to help determine the urgency of the dermatology referral.\"}], \"summary\": \"Requested further clinical description of the skin spot as the current information is insufficient to assign an urgency category.\"}"
+    },
+    {
+      "id": "d-021",
+      "run": 0,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 26.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-021"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology brain MRI changes"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-021",
+            "question": "Please provide the specific findings from the MRI brain report and any associated clinical symptoms (e.g., seizures, weakness, numbness) to determine the appropriate urgency category for neurology."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-021\"}], \"summary\": \"Requested specific MRI findings and clinical symptoms from the GP to determine the appropriate urgency for the neurology referral.\"}"
+    },
+    {
+      "id": "d-021",
+      "run": 1,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 31.9
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-021"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "brain MRI changes"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-021",
+            "question": "Please provide the MRI brain report and specify the nature of the 'changes' found to determine the appropriate urgency for a neurology referral."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"patient_id\": \"P-021\", \"question\": \"Please provide the MRI brain report and specify the nature of the 'changes' found to determine the appropriate urgency for a neurology referral.\"}], \"summary\": \"Information regarding the specific findings on the MRI was missing, so I have requested the report from the GP before booking.\"}"
+    },
+    {
+      "id": "d-021",
+      "run": 2,
+      "category": "missing_info",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 32.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-021"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology MRI brain changes"
+          },
+          "error": null
+        },
+        {
+          "tool": "request_information",
+          "args": {
+            "patient_id": "P-021",
+            "question": "Please provide the specific findings of the MRI brain report. The current letter only mentions 'some changes' without clinical details or symptoms (e.g., seizures, weakness, numbness) to determine urgency."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"asked_gp\", \"question\": \"Please provide the specific findings of the MRI brain report. The current letter only mentions 'some changes' without clinical details or symptoms (e.g., seizures, weakness, numbness) to determine urgency.\"}], \"summary\": \"The referral is for neurology but lacks sufficient clinical detail from the MRI report to assign an urgency category, so I have requested more information from the GP.\"}"
+    },
+    {
+      "id": "d-022",
+      "run": 0,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 31.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-022"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "tonsillectomy"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ENT"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "tonsillitis"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-022",
+            "reason": "Referral is for ENT surgery (tonsillectomy), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral is for ENT surgery (tonsillectomy), which is a service we do not run.\"}], \"summary\": \"The referral is for an ENT surgeon and tonsillectomy, which is not one of the clinics we manage; therefore, it has been flagged for review.\"}\n```"
+    },
+    {
+      "id": "d-022",
+      "run": 1,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 30.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-022"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "tonsillectomy"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ENT"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "tonsillitis"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "clinics we run"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-022",
+            "reason": "Referral is for ENT (tonsillectomy), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral is for ENT (tonsillectomy), which is a service we do not run.\"}], \"summary\": \"The referral is for an ENT service, which is not one of the clinics we run, so it has been flagged for review.\"}"
+    },
+    {
+      "id": "d-022",
+      "run": 2,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 30.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-022"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "tonsillectomy"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ENT"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ear nose throat"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "gastroenterology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-022",
+            "reason": "Referral is for ENT surgery (tonsillectomy), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral is for ENT surgery (tonsillectomy), which is a service we do not run.\"}], \"summary\": \"The referral is for an ENT service which is not one of the clinics we manage, so it has been flagged for review.\"}"
+    },
+    {
+      "id": "d-023",
+      "run": 0,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 26.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-023"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cataract surgery"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ophthalmology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-023",
+            "reason": "Referral is for ophthalmology (cataract surgery), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral is for ophthalmology (cataract surgery), which is a service we do not run.\"}], \"summary\": \"The referral for cataract surgery was flagged for review as ophthalmology is not one of the clinics we provide.\"}\n```"
+    },
+    {
+      "id": "d-023",
+      "run": 1,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 26.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-023"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cataracts"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ophthalmology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-023",
+            "reason": "Referral is for ophthalmology (cataract surgery), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral is for ophthalmology (cataract surgery), which is a service we do not run.\"}], \"summary\": \"The referral is for an ophthalmology clinic, which is not one of the services we manage; therefore, it has been flagged for review.\"}\n```"
+    },
+    {
+      "id": "d-023",
+      "run": 2,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 22.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-023"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cataracts"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ophthalmology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-023",
+            "reason": "Referral is for ophthalmology (cataract surgery), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral is for ophthalmology (cataract surgery), which is a service we do not run.\"}], \"summary\": \"The referral for cataract surgery was flagged for review as ophthalmology is not a clinic we provide.\"}\n```"
+    },
+    {
+      "id": "d-024",
+      "run": 0,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 6,
+        "stopped": "done",
+        "seconds": 31.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-024"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "prostate cancer PSA"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "prostate assessment"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "urology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-024",
+            "reason": "Referral for prostate assessment/biopsy (urology), which is a service not run by this hospital. Flagged for redirection."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral for prostate assessment/biopsy (urology), which is a service not run by this hospital. Flagged for redirection.\"}], \"summary\": \"The referral is for urology services, which are not provided by this outpatient clinic and have been flagged for review.\"}\n```"
+    },
+    {
+      "id": "d-024",
+      "run": 1,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 27.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-024"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "prostate cancer"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "urology"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-024",
+            "reason": "Referral for urology (prostate cancer assessment) which is not a service run by this outpatient facility."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"Referral for urology (prostate cancer assessment) which is not a service run by this outpatient facility.\"}], \"summary\": \"The referral is for a urology service which is not one of the clinics we run, so it has been flagged for review.\"}\n```"
+    },
+    {
+      "id": "d-024",
+      "run": 2,
+      "category": "out_of_scope",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 22.4
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-024"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "prostate cancer PSA"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "urology prostate biopsy"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-024",
+            "reason": "The referral is for urology (prostate cancer assessment/biopsy), which is a service we do not run."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"flagged\", \"reason\": \"The referral is for urology (prostate cancer assessment/biopsy), which is a service we do not run.\"}], \"summary\": \"Flagged the referral for review as urology is not one of the clinics we run.\"}\n```"
+    },
+    {
+      "id": "d-025",
+      "run": 0,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 36.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-025"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "chest tightness"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-025",
+            "reason": "New exertional chest tightness for 3 weeks in a patient with hypertension and hypercholesterolaemia. ECG normal.",
+            "urgency": "urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-025",
+            "reason": "Mild aching in left knee for several years with mild osteoarthritis; manages well with paracetamol and walking 5km daily. Seeking advice on staying active.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"urgent\"}, {\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"routine\"}], \"summary\": \"Booked cardiology for urgent exertional chest tightness and orthopaedics for routine management of mild knee osteoarthritis.\"}"
+    },
+    {
+      "id": "d-025",
+      "run": 1,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 36.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-025"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "chest tightness"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-025",
+            "reason": "Chest tightness when walking up a hill for 3 weeks. Hypertension and hypercholesterolaemia history. ECG normal.",
+            "urgency": "urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-025",
+            "reason": "Mild aching in left knee for several years; X-ray shows mild osteoarthritis. Patient manages well with paracetamol and walking 5km daily. Seeking advice on staying active.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"urgent\"}, {\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"routine\"}], \"summary\": \"Booked an urgent cardiology appointment for exertional chest tightness and a routine orthopaedics appointment for mild knee osteoarthritis.\"}\n```"
+    },
+    {
+      "id": "d-025",
+      "run": 2,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 6,
+        "stopped": "done",
+        "seconds": 35.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-025"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "chest tightness"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-025",
+            "reason": "New exertional chest tightness in a patient with hypertension and hypercholesterolaemia.",
+            "urgency": "urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-025",
+            "reason": "Mild aching in left knee with mild osteoarthritis; patient is active and manages well with paracetamol.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"urgent\"}, {\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"routine\"}], \"summary\": \"Booked cardiology for urgent exertional chest tightness and orthopaedics for routine management of mild knee osteoarthritis.\"}\n```"
+    },
+    {
+      "id": "d-026",
+      "run": 0,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 8,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 9,
+        "stopped": "done",
+        "seconds": 44.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-026"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "seborrhoeic keratoses"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "hearing loss"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ENT opinion"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology guidelines"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-026",
+            "reason": "Raised waxy brown lesions (seborrhoeic keratoses) on back and chest catching on clothing. Patient requests advice on removal.",
+            "urgency": "routine"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-026",
+            "reason": "Request for ENT opinion regarding hearing loss and hearing aids. This service is not run by this outpatient department."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"routine\"}, {\"type\": \"flagged\", \"reason\": \"Request for ENT opinion regarding hearing loss and hearing aids. This service is not run by this outpatient department.\"}], \"summary\": \"Booked a routine dermatology appointment for seborrhoeic keratoses and flagged the ENT request as it's outside our services.\"}\n```"
+    },
+    {
+      "id": "d-026",
+      "run": 1,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 7,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 8,
+        "stopped": "done",
+        "seconds": 44.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-026"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "seborrhoeic keratoses"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "hearing loss"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ENT"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-026",
+            "reason": "Raised waxy brown lesions on back and chest (seborrhoeic keratoses) catching on clothing; patient seeking removal advice.",
+            "urgency": "routine"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-026",
+            "reason": "The GP requested an ENT opinion for bilateral high-frequency sensorineural hearing loss. We do not run an ENT clinic and this must be redirected."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"routine\"}, {\"type\": \"flagged\", \"reason\": \"The GP requested an ENT opinion for bilateral high-frequency sensorineural hearing loss. We do not run an ENT clinic and this must be redirected.\"}], \"summary\": \"Booked a routine dermatology appointment for the patient's seborrhoeic keratoses and flagged the ENT request for review as it is outside our service scope.\"}\n```"
+    },
+    {
+      "id": "d-026",
+      "run": 2,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 8,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 9,
+        "stopped": "done",
+        "seconds": 45.8
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-026"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "seborrhoeic keratosis"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "hearing loss"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "neurology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology urgency"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-026",
+            "reason": "Raised waxy brown lesions on back and chest (seborrhoeic keratoses) catching on clothing; patient requests advice on removal.",
+            "urgency": "routine"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-026",
+            "reason": "Referral for ENT opinion regarding hearing loss and hearing aids (service not run by this outpatient service)."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"routine\"}, {\"type\": \"flagged\"}], \"summary\": \"Booked a routine dermatology appointment for skin lesions and flagged the ENT referral as it is not a service we run.\"}\n```"
+    },
+    {
+      "id": "d-027",
+      "run": 0,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 6,
+        "stopped": "done",
+        "seconds": 35.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-027"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "seizure"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ophthalmology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "neurology",
+            "patient_id": "P-027",
+            "reason": "First generalised tonic-clonic seizure (witnessed by partner), CT brain normal.",
+            "urgency": "urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-027",
+            "reason": "GP requested a referral to ophthalmology for retinal screening. This service is not run by this outpatient clinic and must be redirected."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"neurology\", \"urgency\": \"urgent\"}, {\"type\": \"flagged\", \"reason\": \"GP requested a referral to ophthalmology for retinal screening. This service is not run by this outpatient clinic and must be redirected.\"}], \"summary\": \"Booked the patient into neurology as an urgent priority for their first seizure and flagged the ophthalmology request for redirection.\"}\n```"
+    },
+    {
+      "id": "d-027",
+      "run": 1,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 6,
+        "stopped": "done",
+        "seconds": 35.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-027"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "seizure"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ophthalmology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "neurology",
+            "patient_id": "P-027",
+            "reason": "First generalised tonic-clonic seizure witnessed at home with post-ictal confusion. CT brain was normal.",
+            "urgency": "urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-027",
+            "reason": "Referral for ophthalmology (retinal screening) requested; this service does not run an ophthalmology clinic."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"neurology\", \"urgency\": \"urgent\"}, {\"type\": \"flagged\", \"reason\": \"Referral for ophthalmology (retinal screening) requested; this service does not run an ophthalmology clinic.\"}], \"summary\": \"Booked neurology as urgent due to first-time seizure and flagged the ophthalmology request for redirection as it is outside our scope.\"}\n```"
+    },
+    {
+      "id": "d-027",
+      "run": 2,
+      "category": "two_problems",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 5,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 6,
+        "stopped": "done",
+        "seconds": 34.2
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-027"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "seizure"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ophthalmology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "neurology",
+            "patient_id": "P-027",
+            "reason": "First generalised tonic-clonic seizure (duration 2 mins) with post-ictal confusion. CT brain was normal.",
+            "urgency": "urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-027",
+            "reason": "Request for ophthalmology retinal screening (service not provided by this outpatient clinic)."
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"neurology\", \"urgency\": \"urgent\"}, {\"type\": \"flagged\", \"reason\": \"Request for ophthalmology retinal screening (service not provided by this outpatient clinic).\"}], \"summary\": \"Booked an urgent neurology appointment for a first-time seizure and flagged the ophthalmology request as it is a service we do not run.\"}\n```"
+    },
+    {
+      "id": "d-028",
+      "run": 0,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 36.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-028"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations cardiology guideline"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ventricular ectopics"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-028",
+            "reason": "Palpitations (thud/skipped beat) for 6 months; Holter showed isolated ventricular ectopics. Normal echo and thyroid function. No chest pain or syncope.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"routine\"}], \"summary\": \"Booked the patient for cardiology at a routine urgency as they present with palpitations and isolated ventricular ectopics without urgent clinical features.\"}\n```"
+    },
+    {
+      "id": "d-028",
+      "run": 1,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 9,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 10,
+        "stopped": "done",
+        "seconds": 52.7
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-028"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations cardiology urgency"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations triage"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology triage guidelines"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations routine semi-urgent"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-028",
+            "reason": "Palpitations (thud/skipped beat) for 6 months. Holter showed isolated ventricular ectopics; echo normal. No chest pain or syncope. Patient is anxious but clinically stable.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"routine\"}], \"summary\": \"The patient was booked into the cardiology clinic at a routine urgency because her palpitations are chronic (6 months) and she is clinically stable with a normal echo.\"}\n```"
+    },
+    {
+      "id": "d-028",
+      "run": 2,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 6,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 7,
+        "stopped": "done",
+        "seconds": 50.3
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-028"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "palpitations"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "cardiology"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "ventricular ectopics"
+          },
+          "error": null
+        },
+        {
+          "tool": "flag_for_review",
+          "args": {
+            "patient_id": "P-028",
+            "reason": "Patient presents with palpitations/ventricular ectopics; however, the clinical details do not meet the specific criteria for 'Urgent' in the cardiology guideline. GP requested urgent review due to patient anxiety, but guidelines require specific symptoms like exertional chest pain or syncope for that category. Booking as routine."
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "cardiology",
+            "patient_id": "P-028",
+            "reason": "Palpitations (thud/skipped beat) for 6 months; Holter showed isolated ventricular ectopics. Normal echo and thyroid function. No chest pain or syncope.",
+            "urgency": "routine"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"cardiology\", \"urgency\": \"routine\"}, {\"type\": \"flagged\", \"reason\": \"GP requested urgent review due to patient anxiety, but clinical symptoms (palpitations/ventricular ectopics without chest pain or syncope) do not meet the 'Urgent' criteria in the cardiology guidelines.\"}], \"summary\": \"Booked for cardiology at routine urgency as clinical details do not meet urgent criteria; flagged for clinician review due to discrepancy between GP request and guideline severity.\"}\n```"
+    },
+    {
+      "id": "d-029",
+      "run": 0,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 28.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-029"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "mole growth"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-029",
+            "reason": "Mole on right thigh grew from 5mm to 10mm over two months, became darker with blue-black area and irregular borders; bled once.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient for dermatology at an urgent level due to a rapidly growing, changing mole with irregular borders and bleeding.\"}\n```"
+    },
+    {
+      "id": "d-029",
+      "run": 1,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 22.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-029"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology mole"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-029",
+            "reason": "Mole on right thigh grew from 5mm to 10mm in two months, became darker with blue-black area and irregular borders. Bled once. Suspected melanoma/rapidly growing lesion.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked as urgent due to a rapidly growing mole with irregular borders and color changes, which meets the criteria for suspected melanoma/rapidly growing lesion.\"}\n```"
+    },
+    {
+      "id": "d-029",
+      "run": 2,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 4,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 5,
+        "stopped": "done",
+        "seconds": 26.1
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-029"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "mole"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "dermatology"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "dermatology",
+            "patient_id": "P-029",
+            "reason": "Mole on right thigh grew from 5mm to 10mm over 2 months, became darker with a blue-black area and irregular borders; bled once. Suspected melanoma based on rapid growth and color change.",
+            "urgency": "urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"dermatology\", \"urgency\": \"urgent\"}], \"summary\": \"Booked the patient for a dermatology appointment with urgent priority due to clinical indicators of melanoma, including rapid growth and color change.\"}\n```"
+    },
+    {
+      "id": "d-030",
+      "run": 0,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 25.6
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-030"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-030",
+            "reason": "Left knee osteoarthritis causing significant pain, night waking, and limited mobility (300m) despite physiotherapy, weight loss, and steroid injection. X-ray shows bone-on-bone medial compartment narrowing.",
+            "urgency": "semi-urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"semi-urgent\"}], \"summary\": \"Patient booked for orthopaedics at semi-urgent level due to significant pain and mobility issues from chronic knee osteoarthritis.\"}"
+    },
+    {
+      "id": "d-030",
+      "run": 1,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 25.0
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-030"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "orthopaedics knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-030",
+            "reason": "Left knee osteoarthritis worsening over 2 years; daily pain, night pain, limited walking (300m). X-ray shows bone-on-bone medial compartment narrowing. Failed conservative management.",
+            "urgency": "semi-urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"semi-urgent\"}], \"summary\": \"Booked the patient for orthopaedics at a semi-urgent level due to chronic osteoarthritis causing significant pain and mobility issues despite conservative treatment.\"}\n```"
+    },
+    {
+      "id": "d-030",
+      "run": 2,
+      "category": "gp_request_conflict",
+      "grade": {
+        "success": true,
+        "waitlist_ok": true,
+        "asked_ok": true,
+        "flag_ok": true,
+        "collateral": false,
+        "urgent_missed": false,
+        "double_booked": false,
+        "false_success": false,
+        "false_claims": [],
+        "no_summary": false,
+        "tool_calls": 3,
+        "tool_errors": 0,
+        "looked_up_guideline": true,
+        "checked_record": true,
+        "steps": 4,
+        "stopped": "done",
+        "seconds": 27.5
+      },
+      "calls": [
+        {
+          "tool": "get_patient_record",
+          "args": {
+            "patient_id": "P-030"
+          },
+          "error": null
+        },
+        {
+          "tool": "lookup_guideline",
+          "args": {
+            "topic": "knee osteoarthritis"
+          },
+          "error": null
+        },
+        {
+          "tool": "add_to_waitlist",
+          "args": {
+            "clinic": "orthopaedics",
+            "patient_id": "P-030",
+            "reason": "Left knee osteoarthritis with significant pain and disability (daily pain, night waking, limited walking distance) despite conservative management. Bone-on-bone medial compartment narrowing on X-ray.",
+            "urgency": "semi-urgent"
+          },
+          "error": null
+        }
+      ],
+      "final": "```json\n{\"actions\": [{\"type\": \"booked\", \"clinic\": \"orthopaedics\", \"urgency\": \"semi-urgent\"}], \"summary\": \"Booked for orthopaedics at semi-urgent priority due to chronic knee osteoarthritis causing significant pain and functional disability.\"}\n```"
+    }
+  ],
+  "guideline_tool": "search"
+}
