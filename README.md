@@ -33,7 +33,7 @@ Successful runs out of all runs. v1 to v3 used the original keyword-search tool 
 
 What the eval showed:
 
-- The commonest failure wasn't a wrong action but no action. v1 flagged letters "for review" and booked nobody, including a patient who fainted on exertion.
+- The commonest failure was doing nothing. v1 flagged letters "for review" and booked nobody, including a patient who fainted on exertion.
 - Fixing one habit created another. Telling the agent not to hide behind flags made it guess bookings for letters that didn't describe the problem.
 - Prompt rules overfit. v3 went from 74% to 99% on the tuning tasks but only 73% to 77% on new ones, because each rule fixed the cases it was written for.
 - The tool mattered more than the prompt. The keyword search missed rules worded differently from the query and sent the agent into search loops. Returning the whole 580-word guideline removed the loops and cut tool calls by about a third.
@@ -117,7 +117,7 @@ docs/                chart used in this README
 
 - Larger task sets with clinician-reviewed outcomes, so held-out sets of similar difficulty can be compared.
 - The same tasks on other open models and a large hosted model.
-- A guideline too large to read whole, to test retrieval properly rather than avoid it.
+- A guideline too large to read whole, so retrieval has to work.
 - Tasks that need more than one turn, such as the GP replying with the missing details.
 
 ## Licence
