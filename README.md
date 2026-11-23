@@ -26,17 +26,17 @@ Gemma 4 12b through Ollama on a 16 GB Mac mini. Every task runs 3 times, because
 | --- | --- | --- | --- | --- |
 | v1 | A plain prompt | 74% | 73% | 92%* |
 | v2 | Working rules: a flag never replaces a booking, never lower a booking | 89% | | |
-| v3 | Ask the GP instead of guessing; clearer arthritis guidance | 99% | 77% | 95% |
+| v3 | Ask the GP instead of guessing; clearer arthritis guidance | 99% | 77% | 95% / 100%* |
 | v4 | Tool returns the whole guideline; read it once; under-16s are out of scope | 100% | 92%** | 100% |
 
-Successful runs out of all runs. \* With the whole-guideline tool. \*\* The first held-out set was used to diagnose v4's fixes, so this is a check rather than a clean held-out score.
+Successful runs out of all runs. v1 to v3 used the original keyword-search tool on the tuning and first held-out sets. \* On the fresh set every version used the whole-guideline tool; v3 was also run with the old search for comparison (95%). \*\* The first held-out set was used to diagnose v4's fixes, so this is a check rather than a clean held-out score.
 
 What the eval showed:
 
 - The commonest failure wasn't a wrong action but no action. v1 flagged letters "for review" and booked nobody, including a patient who fainted on exertion.
 - Fixing one habit created another. Telling the agent not to hide behind flags made it guess bookings for letters that didn't describe the problem.
 - Prompt rules overfit. v3 went from 74% to 99% on the tuning tasks but only 73% to 77% on new ones, because each rule fixed the cases it was written for.
-- The tool mattered more than the prompt. The keyword search missed rules worded differently from the query and sent the agent into search loops. Returning the whole 800-word guideline removed the loops and cut tool calls by about a third.
+- The tool mattered more than the prompt. The keyword search missed rules worded differently from the query and sent the agent into search loops. Returning the whole 580-word guideline removed the loops and cut tool calls by about a third.
 - In 780 runs, the agent never once claimed an action it hadn't taken.
 
 `python3 report.py` rebuilds every table from the saved runs in `results/`.
